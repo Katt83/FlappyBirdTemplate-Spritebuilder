@@ -34,17 +34,6 @@
     int points;
 }
 
-- (id)init
-{
-    if (self = [super init])
-    {
-        // activate touches on this scene
-        self.userInteractionEnabled = TRUE;
-    }
-    return self;
-}
-
-
 - (void)didLoadFromCCB {
     self.userInteractionEnabled = TRUE;
     
