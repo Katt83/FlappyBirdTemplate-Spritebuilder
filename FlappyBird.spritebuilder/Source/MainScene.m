@@ -34,6 +34,16 @@
     int points;
 }
 
+- (id)init
+{
+    if (self = [super init])
+    {
+        // activate touches on this scene
+        self.userInteractionEnabled = TRUE;
+    }
+    return self;
+}
+
 
 - (void)didLoadFromCCB {
     self.userInteractionEnabled = TRUE;
@@ -60,7 +70,7 @@
 
 #pragma mark - Touch Handling
 
-- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     if (!_gameOver) {
         [character.physicsBody applyAngularImpulse:10000.f];
         _sinceTouch = 0.f;
