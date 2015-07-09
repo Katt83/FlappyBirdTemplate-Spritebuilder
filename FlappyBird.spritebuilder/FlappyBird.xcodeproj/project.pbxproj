@@ -43,13 +43,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		021AF2201B4EF5DC00950190 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B7378940180761A80076A88C /* cocos2d-ios.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B7E7DE341A76DB7D004234B7;
-			remoteInfo = cocos2dMacFramework;
-		};
 		B737894A180761A90076A88C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B7378940180761A80076A88C /* cocos2d-ios.xcodeproj */;
@@ -180,7 +173,6 @@
 				B737894B180761A90076A88C /* libcocos2d.a */,
 				BC2B438B1A77575C00F945C3 /* libcocos2dAndroid.a */,
 				BC2B438D1A77575C00F945C3 /* libcocos2d-mac.a */,
-				021AF2211B4EF5DC00950190 /* cocos2dMacFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -328,13 +320,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		021AF2211B4EF5DC00950190 /* cocos2dMacFramework.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = cocos2dMacFramework.framework;
-			remoteRef = 021AF2201B4EF5DC00950190 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		B737894B180761A90076A88C /* libcocos2d.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -396,7 +381,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -n \"${MGWU_PUBLISH_SPRITES}\" ]; then\nosascript -e 'tell application \"System Events\"' -e 'set ProcessList to name of every process' -e 'if \"SpriteBuilder\" is in ProcessList then' -e 'tell application \"SpriteBuilder\" to publish' -e 'end if' -e 'end tell'\nfi\n\nif [ -n \"${MGWU_DO_PUSH}\" ]; then\ngit add . --all\ngit commit -m \"Automatically Committed for MakeGamesWithUs\"\ngit push origin master || true\nfi";
+			shellScript = "osascript -e 'tell application \"System Events\"' -e 'set ProcessList to name of every process' -e 'if \"SpriteBuilder\" is in ProcessList then' -e 'tell application \"SpriteBuilder\" to publish' -e 'end if' -e 'end tell'\n\nif ! [ -n \"${MGWU_SKIP_PUSH}\" ]; then\ngit add . --all\ngit commit -m \"Automatically Committed for MakeGamesWithUs\"\ngit push origin master || true\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -505,8 +490,7 @@
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				MGWU_DO_PUSH = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -538,8 +522,7 @@
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				MGWU_DO_PUSH = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
